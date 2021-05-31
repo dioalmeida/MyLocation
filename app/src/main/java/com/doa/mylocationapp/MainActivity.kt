@@ -23,7 +23,7 @@ import com.google.android.gms.maps.model.*
 //We need to add the onMapReadyCallback interface and override de onMapReady
 // OnMarkerClickListener is to handle the marker clicks
 class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
-    private var showInfoWindow =false
+    private var showInfoWindow = false
     private var googleMap: GoogleMap? = null
     private var mapView: MapView? = null
     private val LOCATION_PERMISSION = 1
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
                             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA))
                             mCurrLocationMarker = googleMap?.addMarker(markerOptions)
 
-                            if (showInfoWindow){
+                            if (showInfoWindow) {
                                 mCurrLocationMarker?.showInfoWindow()
                             }
 
@@ -123,8 +123,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
     }
 
 
-    //after the permissions are asked we can load the map and simply se the property
-    // setMyLocationEnabled(true)
     override fun onMapReady(map: GoogleMap?) {
         googleMap = map
 
@@ -140,6 +138,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarker
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
             maxWaitTime = 100
         }
+        //after the permissions are asked we can load the map and simply se the property
         googleMap!!.isMyLocationEnabled = true
 
         //show info window after update because after each update the infowindow is rebuilt.
